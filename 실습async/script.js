@@ -26,6 +26,10 @@ function renderUsers() {
   }
 }
 
+function filterByRace(){
+  document.querySelector('raceFilter').value
+}
+
 
 
 /*
