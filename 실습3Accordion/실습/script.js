@@ -13,3 +13,14 @@
 
 	6. this를 활용하면 전체 코드를 10줄미만으로 작성가능합니다. 코드를 간략하게 만들어보세요.
 */
+$('.tt').css({})
+$('.tt').on('click', function(){
+	if ($(this).hasClass() == 'open') {
+		$(this).children('img').fadeIn();
+		$(this).children('p').slideDown();
+	} else
+	$(this).siblings().children('img').fadeOut();
+	$(this).siblings().children('p').slideUp();
+	$(this).siblings().children('h2').removeClass('open');
+	$(this).children('h2').toggleClass('open');
+});
