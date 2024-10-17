@@ -27,7 +27,7 @@ function renderUsers() {
 }
 
 function filterByRace(){
-  document.querySelector('raceFilter').value
+  document.querySelector('#raceFilter').value
 }
 
 
