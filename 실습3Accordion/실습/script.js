@@ -15,12 +15,17 @@
 */
 $('.tt').css({})
 $('.tt').on('click', function(){
-	if ($(this).hasClass() == 'open') {
-		$(this).children('img').fadeIn();
-		$(this).children('p').slideDown();
-	} else
 	$(this).siblings().children('img').fadeOut();
 	$(this).siblings().children('p').slideUp();
 	$(this).siblings().children('h2').removeClass('open');
 	$(this).children('h2').toggleClass('open');
+	if ($(this).hasClass() == 'open') {
+		$('.tt').children('img').fadeOut();
+		$('.tt').children('p').slideUp();
+		$(this).children('img').fadeIn();
+		$(this).children('p').slideDown();
+	} else {
+		$(this).children('img').fadeOut();
+		$(this).children('p').slideUp();
+	}
 });
