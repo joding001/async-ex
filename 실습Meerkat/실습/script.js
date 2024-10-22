@@ -19,3 +19,39 @@
 
 	7. 자동으로 2초마다 캐릭터가 번갈아가며 클릭되게 해보세요.
 */
+$('.wrapper .face li').animate({
+	top: '200px'
+}, 500);
+// setTimeout(function(){
+// 	$('.wrapper .face li:first').trigger('click');
+// }, 500);
+$('.wrapper .face li:first').on('click', function(){
+	$('.wrapper .contents li:last').hide();
+	$('.wrapper .face li:first').stop(true, true).animate({
+		top: '0'
+	}, 500, function() {
+		$(this).animate({
+			top: '200px'
+		}, 500);
+	});
+	$('.wrapper .contents li:first').fadeIn();
+	$('.wrapper .contents').height(188);
+});
+$('.wrapper .face li:last').on('click', function(){
+	$('.wrapper .contents li:first').hide();
+	$('.wrapper .face li:last').stop(true, true).animate({
+		top: '0'
+	}, 500, function() {
+		$(this).animate({
+			top: '200px'
+		}, 500);
+	});
+	$('.wrapper .contents li:last').fadeIn();
+	$('.wrapper .contents').height(340);
+});
+setInterval(() => {
+	$('.wrapper .face li:first').trigger('click');
+	setTimeout(() => {
+		$('.wrapper .face li:last').trigger('click');
+	}, 2000)
+}, 4000);

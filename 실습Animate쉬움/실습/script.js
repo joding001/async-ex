@@ -13,6 +13,11 @@
 
 	5. li.type-c에 마우스 올리면 이미지가 올라오고 떼면 원래 사태로 만들어보세요.
 	단! li.type-c안의 이미지는 각각 높이가 다릅니다. 이 점을 유의하여 작성해보세요.
-
-
 */
+for (let i = 0; i < $('.gallery').children().size() / 2; i++) {
+	setTimeout(() => {
+		$(`.gallery li:nth-child(${i + 1})`).fadeIn();
+	}, i * 100);
+}
+
+$('')

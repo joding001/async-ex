@@ -21,7 +21,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: -300px;
+    margin-top: -350px;
     margin-left: -450px;
 }
 
@@ -65,9 +65,9 @@ body {
 }
 
 
-.type-a {}
-.type-b {}
-.type-c {}
+.type-a { border-radius: 50%; }
+.type-b { height: 70px; }
+.type-c { height: 10rem; padding: 1.75rem 0; }
 
 
 
@@ -76,9 +76,10 @@ body {
     top값과 opacity값을 원하는대로 수정하세요.
 */
 .gallery li.type-b img{
+    transition: transform,opacity 250ms linear;
 	position : relative;
-
-
+    top: -40px;
+    opacity: 0.5;
 }
 
 /*
@@ -86,19 +87,28 @@ body {
     opacity값을 원하는대로 수정하세요.
 */
 .gallery li.type-a img{
-
+    transition: transform,opacity 250ms linear;
+    transform: scale(1.2);
+    opacity: 0.5;
 }
 
 /*
-    jQuery 애니메이션을 주기 위하여
-    이미지 위치를 조정하세요.
+jQuery 애니메이션을 주기 위하여
+이미지 위치를 조정하세요.
 */
 .gallery li.type-c{
-	overflow:visible;
-	background-color:#999;
+    overflow:hidden;
+    width: 400px;
+    font-size: 5rem;
+    font-family: 'Maven Pro';
+    text-align: center;
+    font-weight: 900;
+    color: white;
+	background-color:#999999;
 }
 
 .gallery li.type-c .inner{
-	
+    position: relative;
+    top: 40px;
 	pointer-events:none;
 }
