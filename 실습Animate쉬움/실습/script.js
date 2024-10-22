@@ -20,4 +20,23 @@ for (let i = 0; i < $('.gallery').children().size() / 2; i++) {
 	}, i * 100);
 }
 
-$('')
+$('li.type-a').on('mouseenter', function(){
+	$(this).css({border : '2px solid black'});
+	$(this).children().css({opacity : '1'})
+}).on('mouseleave', function(){
+    $(this).css({border: '5px solid black'});
+	$(this).children().css({opacity : '0.5'})
+});
+
+$('li.type-b').on('mouseenter', function(){
+	$(this).children().animate({top : '0', opacity : '1'}, 250)
+}).on('mouseleave', function(){
+	$(this).children().animate({top : '-40px', opacity : '0.5'}, 250)
+});
+
+$('li.type-c.homor').on('mouseenter', function(){
+	$(this).animate({backgroundColor : 'white', letterSpacing : '15px'});
+	$(this).children().children().show().animate({top : '250px'})
+}).on('mouseleave', function(){
+
+});

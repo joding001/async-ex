@@ -16,13 +16,13 @@ body {
 
 .wrapper {
 
-    width: 900px;
+    width: 1000px;
     height: 600px;
     position: absolute;
     left: 50%;
     top: 50%;
     margin-top: -350px;
-    margin-left: -450px;
+    margin-left: -500px;
 }
 
 .gallery {
@@ -53,7 +53,6 @@ body {
 }
 
 .gallery.side-b li {
-	
     float: left;
 }
 
@@ -65,8 +64,8 @@ body {
 }
 
 
-.type-a { border-radius: 50%; }
-.type-b { height: 70px; }
+.type-a { border-radius: 50%; width: 70px; height: 70px; transition: border 250ms linear; }
+.type-b { height: 70px; width: 40%; }
 .type-c { height: 10rem; padding: 1.75rem 0; }
 
 
@@ -76,7 +75,6 @@ body {
     top값과 opacity값을 원하는대로 수정하세요.
 */
 .gallery li.type-b img{
-    transition: transform,opacity 250ms linear;
 	position : relative;
     top: -40px;
     opacity: 0.5;
@@ -88,7 +86,6 @@ body {
 */
 .gallery li.type-a img{
     transition: transform,opacity 250ms linear;
-    transform: scale(1.2);
     opacity: 0.5;
 }
 
@@ -97,18 +94,26 @@ jQuery 애니메이션을 주기 위하여
 이미지 위치를 조정하세요.
 */
 .gallery li.type-c{
-    overflow:hidden;
+    overflow:visible;
     width: 400px;
     font-size: 5rem;
     font-family: 'Maven Pro';
     text-align: center;
     font-weight: 900;
-    color: white;
+    color: #dddddd;
 	background-color:#999999;
 }
 
 .gallery li.type-c .inner{
     position: relative;
-    top: 40px;
+    overflow: hidden;
+    top: -470px;
+    height: 500px;
 	pointer-events:none;
+}
+
+.gallery li.type-c .inner img {
+    display: none;
+    position: relative;
+    top: 500px;
 }
