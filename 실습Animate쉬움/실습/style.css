@@ -101,7 +101,7 @@ jQuery 애니메이션을 주기 위하여
     text-align: center;
     font-weight: 900;
     color: #dddddd;
-	background-color:#999999;
+	background-color: #999999;
 }
 
 .gallery li.type-c .inner{
@@ -113,7 +113,8 @@ jQuery 애니메이션을 주기 위하여
 }
 
 .gallery li.type-c .inner img {
-    display: none;
-    position: relative;
-    top: 500px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -400px;
 }
