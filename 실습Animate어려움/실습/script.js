@@ -21,6 +21,44 @@
 	9. 화살표를 클릭시 좌우로 500px씩 이동하도록 해보세요.
 
 	10. 화살표를 클릭시 만약 더이상 스시가 없다면 #sushi-list가 원래 위치값으로 돌아오도록 만들어보세요.
-
-	
 */
+
+$('#header a').on('click', function(){
+	if ($(this).index() === 0) {
+		$('#sushi-list').animate({left : '-=300px'}, 400, function(){
+			if (Number($('#sushi-list').css('left').slice(0, -2)) > $('#sushi-list ul').children().length * 100 + window.innerWidth) {
+				$('#sushi-list').animate({left : `${$('#sushi-list ul').children().length * 100 - window.innerWidth}px`}, 300);
+			}
+		});
+	}
+	if ($(this).index() === 1) {
+		$('#sushi-list').animate({left : '+=300px'}, 400, function(){
+			if (Number($('#sushi-list').css('left').slice(0, -2)) > 0) {
+				$('#sushi-list').animate({left : '0px'}, 300);
+			}
+		});
+	}
+});
+
+$('#sushi-list .sushi-name').hide();
+$('#sushi-list').width($('#sushi-list ul').children().length * 100);
+$('#sushi-list ul li').css({opacity : '0.5'});
+$('#sushi-list ul li').on('mouseenter', function(){
+	$(this).stop().animate({
+		top : '-200px',
+		opacity : '1'
+	}, 500);
+	$('#sushi-list .sushi-name').css({top : '0', left : `${$(this).index() * 100}px`}).text($(this).children().attr('title'))
+	$('#sushi-list .sushi-name').stop().show().animate({
+		top : '-200px'
+	}, 500);
+}).on('mouseleave', function(){
+	$(this).stop().animate({
+		top : '0',
+		opacity : '0.5'
+	}, 500);
+	$('#sushi-list .sushi-name').css({left : '0'}).text('Name')
+	$('#sushi-list .sushi-name').stop().hide().animate({
+		top : '0'
+	}, 500);
+});

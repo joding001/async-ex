@@ -77,6 +77,8 @@ html, body {
     color: red;
     border-bottom: 3px solid red;
     font-family: 'Dosis', sans-serif;
+    top: 0;
+    left: 0;
 }
 
 /*
@@ -84,11 +86,21 @@ html, body {
     jQuery 애니메이션을 활용하기 위해
     li에 top값을 원하는대로 주세요.
 */
-#sushi-list li{
-
+#sushi-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateY(-100%);
 }
 
-#sushi-list{
+#sushi-list li{
+    float: left;
+    position: relative;
+    top: 0;
+}
 
-	
+#sushi-list ul{
+    width: 100%;
+    overflow: visible;
+    height: 340px;
 }
