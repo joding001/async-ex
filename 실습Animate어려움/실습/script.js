@@ -26,8 +26,8 @@
 $('#header a').on('click', function(){
 	if ($(this).index() === 0) {
 		$('#sushi-list').animate({left : '-=300px'}, 400, function(){
-			if (Number($('#sushi-list').css('left').slice(0, -2)) > $('#sushi-list ul').children().length * 100 + window.innerWidth) {
-				$('#sushi-list').animate({left : `${$('#sushi-list ul').children().length * 100 - window.innerWidth}px`}, 300);
+			if (Number($('#sushi-list').css('left').slice(0, -2)) <= window.innerWidth - ($('#sushi-list ul').children().length * 100)) {
+				$('#sushi-list').animate({left : `-${$('#sushi-list ul').children().length * 100 - window.innerWidth}px`}, 300);
 			}
 		});
 	}
