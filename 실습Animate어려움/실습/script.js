@@ -25,14 +25,14 @@
 
 $('#header a').on('click', function(){
 	if ($(this).index() === 0) {
-		$('#sushi-list').animate({left : '-=300px'}, 400, function(){
+		$('#sushi-list').stop().animate({left : '-=300px'}, 400, function(){
 			if (Number($('#sushi-list').css('left').slice(0, -2)) <= window.innerWidth - ($('#sushi-list ul').children().length * 100)) {
 				$('#sushi-list').animate({left : `-${$('#sushi-list ul').children().length * 100 - window.innerWidth}px`}, 300);
 			}
 		});
 	}
 	if ($(this).index() === 1) {
-		$('#sushi-list').animate({left : '+=300px'}, 400, function(){
+		$('#sushi-list').stop().animate({left : '+=300px'}, 400, function(){
 			if (Number($('#sushi-list').css('left').slice(0, -2)) > 0) {
 				$('#sushi-list').animate({left : '0px'}, 300);
 			}
@@ -48,7 +48,7 @@ $('#sushi-list ul li').on('mouseenter', function(){
 		top : '-200px',
 		opacity : '1'
 	}, 500);
-	$('#sushi-list .sushi-name').css({top : '0', left : `${$(this).index() * 100}px`}).text($(this).children().attr('title'))
+	$('#sushi-list .sushi-name').css({left : `${$(this).index() * 100}px`}).text($(this).children().attr('title'))
 	$('#sushi-list .sushi-name').stop().show().animate({
 		top : '-200px'
 	}, 500);
