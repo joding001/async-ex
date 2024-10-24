@@ -1,11 +1,18 @@
-let users = [];
 let filteredUsers = [];
+let orderToggle = 1;
 
-getUsers().then(renderUsers)
+String.prototype.searchByName = function(substring) {
+  if (substring === '') {
+    return true;
+  }
+  return this.includes(substring);
+};
+
+getUsers().then(renderUsers);
 
 async function getUsers() {
   try {
-    const responce = await fetch('data.json');
+    const responce = await fetch('https://raw.githubusercontent.com/seik1224/data-zelda/main/data.json');
     const data = await responce.json();
     filteredUsers = data;
   } catch (error) {
@@ -14,21 +21,40 @@ async function getUsers() {
 }
 
 function renderUsers() {
-  for (let i = 0; i < filteredUsers.length; i++) {
-    document.querySelector('#userList').innerHTML += 
-    `<tr>
-      <td><img src="${filteredUsers[i].imgSrc}" /></td>
-      <td>${filteredUsers[i].name}</td>
-      <td>${filteredUsers[i].isMen ? '남성' : '여성'}</td>
-      <td>${filteredUsers[i].kind}</td>
-      <td>${filteredUsers[i].date}</td>
-    </tr>`
+  document.querySelector('#userList').innerHTML = '';
+  if (orderToggle === 0) {
+    filteredUsers.sort((obj1, obj2) => obj1.date - obj2.date);
+  } else {
+    filteredUsers.sort((obj1, obj2) => obj2.date - obj1.date);
+  }
+    for (let i = 0; i < filteredUsers.length; i++) {
+      if ((filteredUsers[i].kind === document.querySelector('#raceFilter').value || document.querySelector('#raceFilter').value === '') && filteredUsers[i].name.searchByName(document.getElementById("searchInput").value)) {
+        document.querySelector('#userList').innerHTML += 
+        `<tr>
+          <td><img src="${filteredUsers[i].imgSrc}" /></td>
+          <td>${filteredUsers[i].name}</td>
+          <td>${filteredUsers[i].isMen ? '남성' : '여성'}</td>
+          <td>${filteredUsers[i].kind}</td>
+          <td>${filteredUsers[i].date}</td>
+        </tr>`
+    }
   }
 }
 
-function filterByRace(){
-  document.querySelector('#raceFilter').value
-}
+document.getElementById('sortDateButton').addEventListener('click', function(){
+  if (orderToggle === 0) {
+    this.innerText = '내림차순으로 정렬';
+    orderToggle = 1;
+  } else {
+    this.innerText = '오름차순으로 정렬';
+    orderToggle = 0;
+  }
+  renderUsers()
+});
+document.getElementById("raceFilter").addEventListener("change", renderUsers);
+document.getElementById("searchInput").addEventListener("input", renderUsers);
+
+
 
 
 

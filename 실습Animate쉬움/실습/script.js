@@ -36,7 +36,7 @@ setTimeout(function(){
 	
 	$('li.type-c').on('mouseenter', function(){
 		$(this).css({backgroundColor : 'white'})
-		$(this).stop().animate({letterSpacing : '20px'});
+		$(this).stop().animate({letterSpacing : '20px', textIndent:'20'});
 		$(this).children().children().stop().animate({bottom : '0'})
 	}).on('mouseleave', function(){
 		$(this).css({backgroundColor : '#999999'})

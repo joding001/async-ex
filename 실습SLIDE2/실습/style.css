@@ -49,9 +49,14 @@ body {
     slide를 1줄로 나열해보세요.
 */
 .hero-slide {
+    position: relative;
+    right: 0;
+    height: 400px;
+    width: 4800px;
 }
 
 .hero-slide li{
+    float: left;
 }
 
 .canvas img {
@@ -87,7 +92,9 @@ body {
 
 */
 .icons a.active {
-
+    border-color: #ff000000;
+    border-top-left-radius: 10px;
+    opacity: 1;
 }
 
 .icons a.icon01 { background-image: url(icon01.png); }
