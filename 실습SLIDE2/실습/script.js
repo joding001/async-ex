@@ -21,35 +21,74 @@
 
 */
 
+// let select = 0;
+
+
+// $('.icons a').on('click', function(){
+// 	select = $(this).index();
+// 	$(this).addClass('active');
+// 	$(this).siblings().removeClass('active');
+// 	$('ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
+// });
+
+
+// $('.arrow a').on('click', function(){
+// 	if ($(this).index() === 0) {
+// 		select -= (select == 0 ? -4 : 1);
+// 		$(`.icons a.icon0${select + 1}`).addClass('active');
+// 		$(`.icons a.icon0${select + 1}`).siblings().removeClass('active');
+// 		$('.main ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
+// 	}
+// 	if ($(this).index() === 1) {
+// 		select += (select == 4 ? -4 : 1);
+// 		$(`.icons a.icon0${select + 1}`).addClass('active');
+// 		$(`.icons a.icon0${select + 1}`).siblings().removeClass('active');
+// 		$('.main ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
+// 	}
+// });
+
+// $('.icons a.icon01').trigger('click');
+
+// // 계속 움직이는 코드
+// setInterval(function(){
+// 	$('.arrow a.next').trigger('click');
+// }, 2000);
+
+
+
 let select = 0;
 
+for (let i = 0; i < document.querySelectorAll('.icons a').length; i++) {
+	document.querySelector(`.icons a.icon0${i + 1}`).addEventListener('click', function(){
+		
+	});
+	
+}
+// 	select = $(this).index();
+// 	$(this).addClass('active');
+// 	$(this).siblings().removeClass('active');
+// 	$('ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
+// });
 
-$('.icons a').on('click', function(){
-	select = $(this).index();
-	$(this).addClass('active');
-	$(this).siblings().removeClass('active');
-	$('ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
-});
 
+// $('.arrow a').on('click', function(){
+// 	if ($(this).index() === 0) {
+// 		select -= (select == 0 ? -4 : 1);
+// 		$(`.icons a.icon0${select + 1}`).addClass('active');
+// 		$(`.icons a.icon0${select + 1}`).siblings().removeClass('active');
+// 		$('.main ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
+// 	}
+// 	if ($(this).index() === 1) {
+// 		select += (select == 4 ? -4 : 1);
+// 		$(`.icons a.icon0${select + 1}`).addClass('active');
+// 		$(`.icons a.icon0${select + 1}`).siblings().removeClass('active');
+// 		$('.main ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
+// 	}
+// });
 
-$('.arrow a').on('click', function(){
-	if ($(this).index() === 0) {
-		select -= (select == 0 ? -4 : 1);
-		$(`.icons a.icon0${select + 1}`).addClass('active');
-		$(`.icons a.icon0${select + 1}`).siblings().removeClass('active');
-		$('.main ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
-	}
-	if ($(this).index() === 1) {
-		select += (select == 4 ? -4 : 1);
-		$(`.icons a.icon0${select + 1}`).addClass('active');
-		$(`.icons a.icon0${select + 1}`).siblings().removeClass('active');
-		$('.main ul.hero-slide').stop().animate({right : `${select * $('.hero-slide li').width()}px`}, 400);
-	}
-});
+// $('.icons a.icon01').trigger('click');
 
-$('.icons a.icon01').trigger('click');
-
-// 계속 움직이는 코드
-setInterval(function(){
-	$('.arrow a.next').trigger('click');
-}, 2000);
+// // 계속 움직이는 코드
+// setInterval(function(){
+// 	$('.arrow a.next').trigger('click');
+// }, 2000);
